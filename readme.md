@@ -96,4 +96,22 @@
                 <p>It's {temp} °C in {location}</p>
                 )    
         };
-    
+
+#installing foundation:
+
+    - npm install css-loader@0.23.1 script-loader@0.6.1 style-loader@0.13.0 jquery@2.2.1 foundation-sites@6.2.0 --save-dev
+    - update webpack.config:
+        entry[]: add paths to jquery and foundation-sites js before app.jsx 
+            add script! in front inside the path
+        externals{}: jquery: "jQuery"
+        add var webpack = require("webpack") before module.exports to 
+        load in webpack utilities then add
+            plugins[]: new webpack.ProvidePlugin({
+                "$": "jquery",
+                "jQuery": "jquery"
+            })
+    - app.jsx:
+        add require("style!css!foundation-sites/dist/foundation.min.css");
+            chain style-loader(to inject into html) and 
+            css-loader(to tell require what to do with css)
+        start foundation: $(document).foundation();
