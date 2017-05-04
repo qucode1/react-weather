@@ -11,7 +11,9 @@ var React = require("react");
 
 var WeatherMessage = ({temp, location}) => {
     return(
-        <p>It's {temp} °C in {location}</p>
+        <div className="primary callout">
+            <p className="text-center">It's <strong>{temp} °C</strong> in <strong>{location}</strong></p>
+        </div>
         )    
 };
 
