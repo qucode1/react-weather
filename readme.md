@@ -141,3 +141,34 @@
     - npm install sass-loader node-sass
     - change .css to .scss
     - change alias to .scss in webpack.config
+    
+#Fix Nav Search & Example Links:
+
+    Weather.jsx-----------------------------------------------------------------
+    Read URL Props to find location:
+    +    componentDidMount: function(){
+    +        var location = this.props.location.query.location;
+    +        
+    +        if(location && location.length > 0){
+    +            this.handleSearch(location);
+    +            window.location.hash = "#/";
+    +        }
+    +    },
+    Receive new Props from Main.jsx(Container) after Rendering:
+    +    componentWillReceiveProps: function(newProps){
+    +        var location = newProps.location.query.location;
+    +        
+    +        if(location && location.length > 0){
+    +            this.handleSearch(location);
+    +            window.location.hash = "#/";
+    +        }        
+    +    },
+    Nav.jsx---------------------------------------------------------------------
+    Read input value and encode input for URL usage:
+    +        var location = this.refs.location.value;
+    +        var encodedLocation = encodeURIComponent(location);
+    +        
+    +        if(location.length > 0){
+    +            this.refs.location.value = "";
+    +            window.location.hash = "#/?location=" + encodedLocation;
+    +        }

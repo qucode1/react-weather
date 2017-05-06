@@ -60,8 +60,6 @@ var Weather = React.createClass({
                 return <p className="text-center">Fetching Weather...</p>
             } else if(temp && location){
                 return <WeatherMessage location={location} temp={temp}/>
-            } else if(errorMessage){
-                return <p className="text-center">Couldn't get current weather data: {errorMessage}</p>
             }
         }
         
