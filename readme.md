@@ -135,3 +135,9 @@
             title: React.propTypes.string,
             message: React.propTypes.string.isRequired
         }
+        
+#add scss:
+
+    - npm install sass-loader node-sass
+    - change .css to .scss
+    - change alias to .scss in webpack.config
