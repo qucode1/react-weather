@@ -10,15 +10,15 @@ module.exports = {
         var encodedLocation = encodeURIComponent(location);
         var requestUrl = `${OPEN_WEATHER_MAP_URL}&q=${encodedLocation}`;
         
-        return axios.get(requestUrl).then(function(res){
+        return axios.get(requestUrl)
             
-            if(res.data.cod && res.data.message) {
-                throw new Error(res.data.message);
-            } else {
+            .then(function(res){
+            
+            if(res.data.cod === 200){
                 return {temp: res.data.main.temp, loc: res.data.name, country: res.data.sys.country};
-            }
-        }, function(res){
-            throw new Error(res.data.message);
-        })
+            }})
+            .catch(function(err){
+                throw new Error(err.response.data.message);
+            })
     }
 }

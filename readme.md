@@ -115,3 +115,23 @@
             chain style-loader(to inject into html) and 
             css-loader(to tell require what to do with css)
         start foundation: $(document).foundation();
+        
+#add ErrorModal & Component Lifecycle Methods:
+
+    -componentWillMount: gets called before rendering
+    -componentDidMount: gets called after rendering, allowing access to any refs of children
+    - ErrorModal.jsx: 
+        componentDidMount: function() {
+            var modal = new Foundation.Reveal($("#error-modal"));
+            modal.open();
+        }
+        <div id="error-modal" className="reveal tiny text-center" data-reveal="">
+        <button className="button hollow" data-close="">Okay</button>
+    
+#add PropTypes to ErrorModal.jsx:
+
+    - set expected values for props and wether they are required
+        propTypes: {
+            title: React.propTypes.string,
+            message: React.propTypes.string.isRequired
+        }
