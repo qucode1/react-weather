@@ -9,10 +9,10 @@ var Examples = React.createClass({
                 <p>This is the examples page.</p>
                 <ol>
                     <li>
-                         <Link to="/?location=Philadelphia">Philadelphia, PA</Link>
+                         <Link to="/?location=Philadelphia, Us">Philadelphia, PA</Link>
                     </li>
                     <li>
-                        <Link to="/?location=Rio">Rio, Brazil</Link>
+                        <Link to="/?location=Rio, Br">Rio, Brazil</Link>
                     </li>
                 </ol>
             </div>
